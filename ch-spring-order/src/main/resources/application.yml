@@ -1,0 +1,22 @@
+server:
+  port: 8866
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://alan:alan@192.168.2.133:8888/eureka/
+spring:
+  application:
+    name: ch-spring-order
+  cloud:
+    config:
+      username: alan
+      password: alan
+logging:
+  level:
+    ch.cloud.order: debug
+feign:
+  httpclient:
+    enabled: true

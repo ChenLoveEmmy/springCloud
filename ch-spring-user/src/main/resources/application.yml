@@ -1,0 +1,23 @@
+server:
+  port: 8877
+  servlet:
+    session:
+      cookie:
+        name: ch-spring-user
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://alan:alan@192.168.2.133:8888/eureka/
+spring:
+  application:
+    name: ch-spring-user
+  cloud:
+    config:
+      username: alan
+      password: alan
+feign:
+  httpclient:
+    enabled: true
